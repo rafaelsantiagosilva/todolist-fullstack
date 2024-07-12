@@ -1,4 +1,4 @@
-const tasksModel = require("../models/Task");
+const tasksModel = require("../models/TaskModel");
 
 class TaskController {
      async getAll(req, res) {
@@ -14,6 +14,16 @@ class TaskController {
           try {
                const createdTask = await tasksModel.createTask(req.body);
                return res.status(201).json(createdTask);
+          } catch (error) {
+               return res.status(500).json({ error: error.message });
+          }
+     }
+
+     async deleteTask(req, res) {
+          try {
+               const {taskId} = req.params;
+               const deletedTask = await tasksModel.deleteTask(taskId);
+               return res.status(204).json();
           } catch (error) {
                return res.status(500).json({ error: error.message });
           }

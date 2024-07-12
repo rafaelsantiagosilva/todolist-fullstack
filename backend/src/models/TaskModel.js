@@ -1,6 +1,6 @@
 const connection = require('../connection/connection');
 
-class Task {
+class TaskModel {
      async getAll() {
           const tasks = await connection.execute("SELECT * FROM tasks");
           return tasks;
@@ -15,6 +15,11 @@ class Task {
 
           return {insertId: createdTask.insertId};
      }
+
+     async deleteTask(id) {
+          const removedTask = await connection.execute("DELETE FROM tasks WHERE id = ?", [id]);
+          return removedTask;
+     }
 }
 
-module.exports = new Task(); 
+module.exports = new TaskModel(); 
