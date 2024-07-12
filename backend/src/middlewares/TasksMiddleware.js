@@ -1,5 +1,5 @@
 class TasksMiddleware {
-     validateBody(req, res, next) {
+     validateFieldTitle(req, res, next) {
           const { body } = req;
 
           if (!body.title)
@@ -10,6 +10,20 @@ class TasksMiddleware {
 
           next();
      }
+
+     validateFieldStatus(req, res, next) {
+          const { body } = req;
+
+          if (!body.status)
+               res.status(400).json({ message: "The field 'status' is obrigatory and cannot be empty" });
+
+          if (body.status === "")
+               res.status(400).json({ message: "The field 'status' cannot be empty" });
+
+          next();
+
+     }
+
 }
 
 module.exports = new TasksMiddleware(); 
