@@ -1,4 +1,4 @@
-const connection = require('../connection/connection');
+const connection = require('./connection');
 
 class TaskModel {
      async createTask(task) {
@@ -12,7 +12,7 @@ class TaskModel {
      }
 
      async getAll() {
-          const tasks = await connection.execute("SELECT * FROM tasks");
+          const [tasks] = await connection.execute("SELECT * FROM tasks");
           return tasks;
      }
 
