@@ -13,7 +13,18 @@
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 		/>
-		<script src="./js/script.js" type="text/javascript" defer></script>
+		<script
+			src="./js/functions/updateTask.js"
+			type="text/javascript"
+			defer
+		></script>
+		<script
+			src="./js/functions/deleteTask.js"
+			type="text/javascript"
+			defer
+		></script>
+		<script src="./js/loadTasks.js" type="text/javascript" defer></script>
+		<script src="./js/createTask.js" type="text/javascript" defer></script>
 	</head>
 	<body>
 		<main>
@@ -32,28 +43,9 @@
 					</tr>
 				</thead>
 
-				<tbody>
-					<tr>
-						<td>Estudar Javascript</td>
-						<td>12/07/2024</td>
-						<td>
-							<select name="" id="">
-								<option value="pendente">pendente</option>
-								<option value="em andamento">em andamento</option>
-								<option value="concluida">concluida</option>
-							</select>
-						</td>
-						<td>
-							<button class="btn-action">
-								<span class="material-symbols-outlined"> edit </span>
-							</button>
-							<button class="btn-action">
-								<span class="material-symbols-outlined"> delete </span>
-							</button>
-						</td>
-					</tr>
-				</tbody>
+				<tbody></tbody>
 			</table>
 		</main>
+		<p class="message-to-add-a-task">Adicione uma tarefa!</p>
 	</body>
 </html>
