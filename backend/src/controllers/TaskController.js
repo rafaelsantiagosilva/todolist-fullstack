@@ -21,8 +21,18 @@ class TaskController {
 
      async deleteTask(req, res) {
           try {
-               const {taskId} = req.params;
-               const deletedTask = await tasksModel.deleteTask(taskId);
+               const { taskId } = req.params;
+               await tasksModel.deleteTask(taskId);
+               return res.status(204).json();
+          } catch (error) {
+               return res.status(500).json({ error: error.message });
+          }
+     }
+
+     async updateTask(req, res) {
+          try {
+               const { taskId } = req.params;
+               await tasksModel.updateTask(taskId, req.body);
                return res.status(204).json();
           } catch (error) {
                return res.status(500).json({ error: error.message });
